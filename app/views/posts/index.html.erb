@@ -1,0 +1,33 @@
+<div class="container my-4 px-5">
+
+<div class="d-flex justify-content-between">
+  <div class="fw-bold">予定一覧</div>
+  <div><%= link_to "＋新規追加", new_post_path, class: "btn btn-primary" %></div>
+</div>
+
+<table class="table align-middle">
+  <tr>
+    <th>ID</th><th>タイトル</th><th>開始日</th><th>終了日</th><th>終日</th><th>更新日時</th><th></th><th></th><th></th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= post.title %></td>
+      <td><%= post.start_date.strftime("%Y/%m/%d") %></td>
+      <td><%= post.end_date.strftime("%Y/%m/%d") %></td>
+      <td><%= post.all_day ? "〇" : "" %></td>
+      <td><%= post.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+      <td><%= link_to "詳細", post_path(post), class:"text-decoration-none" %></td>
+      <td><%= link_to "編集", edit_post_path(post), class:"text-decoration-none" %></td>
+      <td><%= link_to "削除", post, class:"text-decoration-none", data: { turbo_method: :delete, turbo_confirm: "予定を削除しますか？" } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="card p-3 d-flex flex-row justify-content-between">
+  <div>予定合計 <strong><%= @posts.count %></strong> 件</div>
+  <div>本日の日付 <%= Date.today.strftime("%Y/%m/%d") %></div>
+</div>
+
+</div>

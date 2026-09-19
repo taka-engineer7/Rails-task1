@@ -1,5 +1,10 @@
 source "https://rubygems.org"
 
+gem "rails-i18n"
+
+# 完全にバージョンを指定
+gem "json", "2.10.1"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.2", ">= 7.2.2.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
