@@ -1,0 +1,20 @@
+<div class="container my-5" style="max-width: 650px;">
+<p class="fw-bold">予定の新規追加</p>
+<%= render "form", post: @post %>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-material-datetimepicker@2.7.1/css/bootstrap-material-datetimepicker.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-material-datetimepicker@2.7.1/js/bootstrap-material-datetimepicker.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.datepicker').bootstrapMaterialDatePicker({
+      time: false,
+      format: 'YYYY-MM-DD',
+      cancelText: 'Cancel',
+      okText: 'OK'
+    });
+  });
+</script>
